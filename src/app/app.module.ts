@@ -6,6 +6,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './shared/header/header.component';
 import { FormSearchComponent } from './shared/form-search/form-search.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DeputyCardsComponent } from './shared/deputy-cards/deputy-cards.component';
+import { DeputiesService } from './context/deputies.service';
 
 @NgModule({
   declarations: [
@@ -13,9 +15,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     HeaderComponent,
     FormSearchComponent,
+    DeputyCardsComponent,
   ],
   imports: [AppRoutingModule, NoopAnimationsModule, ReactiveFormsModule],
-  providers: [],
+  providers: [DeputiesService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

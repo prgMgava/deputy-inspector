@@ -1,0 +1,12 @@
+<div>
+  <div *ngFor="let deputy of deputies">
+    <figure>
+      <img [src]="deputy.urlFoto" [alt]="'Foto do deputado ' + deputy.nome" />
+    </figure>
+    <div>
+      <p>{{ deputy.nome }}</p>
+      <p>{{ deputy.siglaPartido }}</p>
+      <p>{{ deputy.siglaUf }}</p>
+    </div>
+  </div>
+</div>

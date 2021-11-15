@@ -1,5 +1,6 @@
 import { State } from '../models/stateModels';
 
+//
 export const states: State[] = [
   { nome: 'Acre', sigla: 'AC' },
   { nome: 'Alagoas', sigla: 'AL' },
