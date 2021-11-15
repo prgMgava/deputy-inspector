@@ -1,1 +1,26 @@
-<p>form-search works!</p>
+<form [formGroup]="form">
+  <div>
+    <label>Nome</label>
+    <input placeholder="Nome" formControlName="nome" />
+  </div>
+  <div>
+    <label>Partido</label>
+    <input placeholder="Sigla do partido" formControlName="siglaPartido" />
+  </div>
+  <div>
+    <label>Estado(UF)</label>
+    <select formControlName="siglaUf">
+      <option *ngFor="let uf of states" [value]="uf.sigla">
+        {{ uf.nome }}
+      </option>
+    </select>
+  </div>
+  <div>
+    <label>Gênero</label>
+    <select formControlName="siglaSexo">
+      <option value="M">Masculino</option>
+      <option value="F">Feminino</option>
+    </select>
+  </div>
+  <button type="submit" (click)="onSubmit()">Pesquisar</button>
+</form>
