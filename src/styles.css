@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --primary: #337958;
+  --p-dark: #1e4a2f;
+  --p-light: #2e855e;
+  --error: #ff0000;
+  --font-color: #212529;
+  --white: #fdfdfd;
+  --background: #f0f0f0;
+}
+
+body,
+div,
+p,
+h1 {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
