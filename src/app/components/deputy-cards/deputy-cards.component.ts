@@ -22,7 +22,7 @@ export class DeputyCardsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.fetchDeputies();
+    // this.fetchDeputies();
   }
 
   private async fetchDeputies() {

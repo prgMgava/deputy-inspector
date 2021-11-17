@@ -1,8 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500;700&display=swap");
+
 :root {
   --primary: #337958;
   --p-dark: #1e4a2f;
   --p-light: #2e855e;
+  --pl-background: #2e855e1f;
   --error: #ff0000;
   --font-color: #212529;
   --white: #fdfdfd;
@@ -16,6 +18,7 @@ h1 {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
 }
 
 button {
@@ -26,5 +29,18 @@ ul {
   list-style: none;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+input,
+select {
+  /* border: none; */
+  background: none;
+  outline: none;
+}

@@ -1,23 +1,28 @@
-<form [formGroup]="form">
-  <div>
-    <label>Nome</label>
-    <input placeholder="Nome" formControlName="nome" />
+<form [formGroup]="form" class="search">
+  <h3>Consulte seu deputado:</h3>
+  <div class="container-input">
+    <label for="name">Nome:</label>
+    <div>
+      <input placeholder="Nome" formControlName="nome" id="name" />
+    </div>
   </div>
-  <div>
-    <label>Partido</label>
+  <div class="container-input">
+    <label>Partido:</label>
     <input placeholder="Sigla do partido" formControlName="siglaPartido" />
   </div>
-  <div>
-    <label>Estado(UF)</label>
+  <div class="container-input">
+    <label>Estado(UF):</label>
     <select formControlName="siglaUf">
+      <option value="" disabled selected>Escolha um estado</option>
       <option *ngFor="let uf of states" [value]="uf.sigla">
         {{ uf.nome }}
       </option>
     </select>
   </div>
-  <div>
-    <label>Gênero</label>
+  <div class="container-input">
+    <label>Gênero:</label>
     <select formControlName="siglaSexo">
+      <option value="" disabled selected>Escolha o gênero</option>
       <option value="M">Masculino</option>
       <option value="F">Feminino</option>
     </select>
