@@ -30,6 +30,11 @@ export interface Deputy {
   email: string;
 }
 
+export interface Links {
+  rel: string;
+  href: string;
+}
+
 // id: number;
 // nomeCivil: string;
 // ultimoStatus: UltimoStatus;

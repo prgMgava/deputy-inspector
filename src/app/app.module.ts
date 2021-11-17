@@ -3,10 +3,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './views/home/home.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { HeaderComponent } from './shared/header/header.component';
-import { FormSearchComponent } from './shared/form-search/form-search.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FormSearchComponent } from './components/form-search/form-search.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { DeputyCardsComponent } from './shared/deputy-cards/deputy-cards.component';
+import { DeputyCardsComponent } from './components/deputy-cards/deputy-cards.component';
 import { DeputiesService } from './context/deputies.service';
 
 @NgModule({

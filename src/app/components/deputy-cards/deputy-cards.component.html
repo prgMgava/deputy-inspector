@@ -10,3 +10,7 @@
     </div>
   </div>
 </div>
+<div>
+  <button [disabled]="!hasPrevious" (click)="previousPage()">Anterior</button>
+  <button [disabled]="!hasNext" (click)="nextPage()">Próxima</button>
+</div>
