@@ -20,7 +20,7 @@ interface UltimoStatus {
   condicaoEleitoral: string;
 }
 
-export interface Deputy {
+export interface Deputies {
   id: number;
   nome: string;
   siglaPartido: string;
@@ -35,15 +35,17 @@ export interface Links {
   href: string;
 }
 
-// id: number;
-// nomeCivil: string;
-// ultimoStatus: UltimoStatus;
-// cpf: string;
-// sexo: string;
-// urlWebsite: string | null;
-// redeSocial: string[];
-// dataNascimento: string;
-// dataFalecimento: string | null;
-// ufNascimento: string;
-// municipioNascimento: string;
-// escolaridade: string;
+export interface Deputy {
+  id: number;
+  nomeCivil: string;
+  ultimoStatus: UltimoStatus;
+  cpf: string;
+  sexo: string;
+  urlWebsite: string | null;
+  redeSocial: string[];
+  dataNascimento: string;
+  dataFalecimento: string | null;
+  ufNascimento: string;
+  municipioNascimento: string;
+  escolaridade: string;
+}

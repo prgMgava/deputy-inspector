@@ -10,7 +10,7 @@ import api from '../utils/request';
 export class DeputiesService {
   // public deputiesData: Deputy[] = [];
   public deputiesData: Subject<Deputy> = new Subject();
-  public query: string = '';
+  // public query: string = '';
   public links: Links[] = [];
   constructor() {
     // this.getAll();
@@ -30,9 +30,9 @@ export class DeputiesService {
       .then((response) => {
         this.setDeputiesData(response.data.dados);
         this.links = response.data.links;
+        console.log(response.data.dados);
       })
       .catch((err) => console.log(err));
-    // this.setDeputiesData(data);
   }
 
   // private async getAll() {

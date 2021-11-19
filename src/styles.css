@@ -23,6 +23,7 @@ h1 {
 
 button {
   cursor: pointer;
+  outline: none;
 }
 
 ul {
@@ -36,6 +37,7 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: var(--pl-background);
 }
 
 input,

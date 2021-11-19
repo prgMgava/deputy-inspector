@@ -1,16 +1,23 @@
-<div>
-  <div *ngFor="let deputy of deputies">
-    <figure>
-      <img [src]="deputy.urlFoto" [alt]="'Foto do deputado ' + deputy.nome" />
-    </figure>
-    <div>
-      <p>{{ deputy.nome }}</p>
-      <p>{{ deputy.siglaPartido }}</p>
-      <p>{{ deputy.siglaUf }}</p>
-    </div>
-  </div>
-</div>
-<div>
+<div class="container_button">
   <button [disabled]="!hasPrevious" (click)="previousPage()">Anterior</button>
   <button [disabled]="!hasNext" (click)="nextPage()">Próxima</button>
+</div>
+<div class="container_cards">
+  <div
+    *ngFor="let deputy of deputies"
+    class="card_deputy"
+    [routerLink]="['/deputy', deputy.id]"
+    routerLinkActive="active"
+  >
+    <div class="container_img">
+      <figure>
+        <img [src]="deputy.urlFoto" [alt]="'Foto do deputado ' + deputy.nome" />
+      </figure>
+    </div>
+    <div class="container_info">
+      <p><small>Nome:</small> {{ deputy.nome }}</p>
+      <p><small>Partido: </small>{{ deputy.siglaPartido }}</p>
+      <p><small>Estado(UF): </small>{{ deputy.siglaUf }}</p>
+    </div>
+  </div>
 </div>

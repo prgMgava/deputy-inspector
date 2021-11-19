@@ -1,0 +1,34 @@
+<!-- TODO: Fazer icone com situação, e targeta com situaçao eleitoral -->
+<div>
+  <h1>Nome do deputado</h1>
+  <div>
+    <figure>
+      <img
+        [src]="deputy.ultimoStatus.urlFoto"
+        [alt]="'Foto do deputado' + deputy.nomeCivil"
+      />
+    </figure>
+    <p><small>Nome: </small>{{ deputy.ultimoStatus.nome }}</p>
+
+    <p><small>Partido: </small> {{ deputy.ultimoStatus.siglaPartido }}</p>
+    <p><small>Estado(UF): </small>{{ deputy.ultimoStatus.siglaUf }}</p>
+    <p>Contato:</p>
+    <p><small>Email: </small>{{ deputy.ultimoStatus.email }}</p>
+    <p><small>Telefone: </small>{{ deputy.ultimoStatus.gabinete.telefone }}</p>
+    <p><small>WebSite: </small>{{ deputy.urlWebsite || "----" }}</p>
+  </div>
+  <div>
+    <p><small>Gabinete: </small>{{ deputy.ultimoStatus.gabinete.nome }}</p>
+    <p><small>Prédio: </small>{{ deputy.ultimoStatus.gabinete.predio }}</p>
+    <p><small>Sala: </small>{{ deputy.ultimoStatus.gabinete.sala }}</p>
+    <p><small>Andar: </small>{{ deputy.ultimoStatus.gabinete.andar }}</p>
+    <p><small></small></p>
+  </div>
+</div>
+<div>
+  <h5>Último evento participado</h5>
+  <div></div>
+</div>
+<div>
+  <a [routerLink]="['/']">Voltar</a>
+</div>
