@@ -1,6 +1,6 @@
 <!-- TODO: Fazer icone com situação, e targeta com situaçao eleitoral -->
 <div>
-  <h1>Nome do deputado</h1>
+  <h1>{{ deputy.nomeCivil }}</h1>
   <div>
     <figure>
       <img
@@ -26,8 +26,28 @@
   </div>
 </div>
 <div>
-  <h5>Último evento participado</h5>
-  <div></div>
+  <div>
+    <h5>Último evento participado</h5>
+    <div *ngFor="let event of lastEvent">
+      <p>{{ event.descricaoTipo }}</p>
+      <p><small>Data e hora de início: </small>{{ event.dataHoraInicio }}</p>
+      <p><small>Data e hora de término: </small>{{ event.dataHoraFim }}</p>
+      <p>Descrição:</p>
+      <p>{{ event.descricao }}</p>
+    </div>
+  </div>
+  <div>
+    <h5>Próximo evento:</h5>
+    <div *ngIf="!nextEvent.length">
+      <p>Nenhum evento agendado, consulte novamente em outro momento</p>
+    </div>
+    <div *ngFor="let event of nextEvent">
+      <p>{{ event.descricaoTipo }}</p>
+      <p><small>Data e hora de início: </small>{{ event.dataHoraInicio }}</p>
+      <p>Descrição:</p>
+      <p>{{ event.descricao }}</p>
+    </div>
+  </div>
 </div>
 <div>
   <a [routerLink]="['/']">Voltar</a>
