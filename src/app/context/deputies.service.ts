@@ -8,13 +8,9 @@ import api from '../utils/request';
   providedIn: 'root',
 })
 export class DeputiesService {
-  // public deputiesData: Deputy[] = [];
   public deputiesData: Subject<Deputy> = new Subject();
-  // public query: string = '';
   public links: Links[] = [];
-  constructor() {
-    // this.getAll();
-  }
+  constructor() {}
 
   setDeputiesData(newValue: Deputy) {
     this.deputiesData.next(newValue);
@@ -30,26 +26,7 @@ export class DeputiesService {
       .then((response) => {
         this.setDeputiesData(response.data.dados);
         this.links = response.data.links;
-        console.log(response.data.dados);
       })
       .catch((err) => console.log(err));
   }
-
-  // private async getAll() {
-  //   const data = await api
-  //     .get('/deputados')
-  //     .then((response) => (this.deputiesData = response.data.dados))
-  //     .catch((err) => console.log(err));
-  //   console.log('get all');
-  // }
-
-  // async getDeputiesByQueryParams(query: string) {
-  //   const data = await api
-  //     .get(`/deputados?${query}&itens=10`)
-  //     .then((response) => response.data.dados)
-  //     .catch((e) => console.log(e));
-  //   this.setDeputiesData(data);
-
-  //   console.log(data);
-  // }
 }

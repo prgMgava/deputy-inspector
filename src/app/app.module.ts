@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DeputyCardsComponent } from './components/deputy-cards/deputy-cards.component';
 import { DeputiesService } from './context/deputies.service';
 import { DeputyComponent } from './views/deputy/deputy.component';
+import { DeputyExpenseComponent } from './components/deputy-expense/deputy-expense.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { DeputyComponent } from './views/deputy/deputy.component';
     FormSearchComponent,
     DeputyCardsComponent,
     DeputyComponent,
+    DeputyExpenseComponent,
   ],
   imports: [AppRoutingModule, NoopAnimationsModule, ReactiveFormsModule],
   providers: [DeputiesService],

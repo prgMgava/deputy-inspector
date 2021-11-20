@@ -1,0 +1,15 @@
+<div *ngFor="let expense of deputyExpense" class="container_deputy">
+  <h3>{{ expense.tipoDespesa }}</h3>
+  <p><small>Fornecedor: </small>{{ expense.nomeFornecedor }}</p>
+  <p><small>Valor: </small>R$ {{ expense.valorDocumento }}</p>
+  <p><small>Realizada em: </small>{{ expense.dataDocumento }}</p>
+  <a [href]="expense.urlDocumento" target="blank"
+    >Consulte a {{ expense.tipoDocumento }}</a
+  >
+</div>
+<div class="container_button">
+  <button [disabled]="!pagination.previous" (click)="previousPage()">
+    Anterior
+  </button>
+  <button [disabled]="!pagination.next" (click)="nextPage()">Próxima</button>
+</div>

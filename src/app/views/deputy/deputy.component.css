@@ -18,6 +18,10 @@
   max-width: 400px;
 }
 
+.container_deputy img {
+  width: 100px;
+}
+
 .container_deputy p small {
   margin-right: 8px;
 }

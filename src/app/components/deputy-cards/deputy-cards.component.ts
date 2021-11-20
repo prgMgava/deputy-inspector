@@ -21,7 +21,7 @@ export class DeputyCardsComponent implements OnInit {
       .subscribe((data) => (this.deputies = data));
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.fetchDeputies();
   }
 
@@ -43,7 +43,6 @@ export class DeputyCardsComponent implements OnInit {
     const next = this.deputiesService.links.filter(
       (link) => link.rel === 'previous'
     );
-    console.log(this.deputiesService.links);
 
     await this.deputiesService.getTenDeputies(next[0].href);
     this.hasPages();
@@ -57,7 +56,7 @@ export class DeputyCardsComponent implements OnInit {
     this.hasPrevious = !!this.deputiesService.links.filter(
       (link) => link.rel === 'previous'
     ).length;
-    console.log(this.hasPrevious);
+    // console.log(this.hasPrevious);
   }
 }
 
