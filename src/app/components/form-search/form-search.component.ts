@@ -2,7 +2,7 @@ import { query } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { DeputiesService } from 'src/app/context/deputies.service';
-import { FormData } from 'src/app/models/formData.models';
+import { FormDataDeputy } from 'src/app/models/formData.models';
 import { State } from 'src/app/models/stateModels';
 import { states } from 'src/app/utils/states';
 
@@ -26,7 +26,7 @@ export class FormSearchComponent implements OnInit {
     });
   }
   onSubmit() {
-    const data: FormData = {
+    const data: FormDataDeputy = {
       nome: this.form.value.nome,
       siglaUf: this.form.value.siglaUf,
       siglaPartido: this.form.value.siglaPartido,
@@ -42,7 +42,7 @@ export class FormSearchComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  formatedQuery(data: FormData) {
+  formatedQuery(data: FormDataDeputy) {
     const parameters = Object.entries(data);
     const query = parameters
       .filter((item) => !!item[1])
