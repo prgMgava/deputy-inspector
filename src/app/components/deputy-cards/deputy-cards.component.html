@@ -1,6 +1,8 @@
 <div class="container_button">
-  <button [disabled]="!hasPrevious" (click)="previousPage()">Anterior</button>
-  <button [disabled]="!hasNext" (click)="nextPage()">Próxima</button>
+  <button [disabled]="!pagination.previous" (click)="previousPage()">
+    Anterior
+  </button>
+  <button [disabled]="!pagination.next" (click)="nextPage()">Próxima</button>
 </div>
 <div class="container_cards">
   <div

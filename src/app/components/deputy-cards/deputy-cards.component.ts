@@ -4,6 +4,10 @@ import { Deputies } from 'src/app/models/deputies.models';
 import { State } from 'src/app/models/stateModels';
 import { states } from 'src/app/utils/states';
 
+interface Pagination {
+  next: boolean;
+  previous: boolean;
+}
 @Component({
   selector: 'app-deputy-cards',
   templateUrl: './deputy-cards.component.html',
@@ -11,9 +15,9 @@ import { states } from 'src/app/utils/states';
 })
 export class DeputyCardsComponent implements OnInit {
   public states: State[] = states;
-  public hasPrevious: boolean = false;
-  public hasNext: boolean = true;
+
   public deputies: Deputies[] = [];
+  public pagination: Pagination = {} as Pagination;
 
   constructor(private deputiesService: DeputiesService) {
     this.deputiesService
@@ -29,6 +33,7 @@ export class DeputyCardsComponent implements OnInit {
     await this.deputiesService.getTenDeputies(
       'https://dadosabertos.camara.leg.br/api/v2/deputados?itens=10'
     );
+    this.pagination = this.deputiesService.pagination;
   }
 
   async nextPage() {
@@ -36,27 +41,14 @@ export class DeputyCardsComponent implements OnInit {
       (link) => link.rel === 'next'
     );
     await this.deputiesService.getTenDeputies(next[0].href);
-    this.hasPages();
   }
 
   async previousPage() {
-    const next = this.deputiesService.links.filter(
+    const previous = this.deputiesService.links.filter(
       (link) => link.rel === 'previous'
     );
 
-    await this.deputiesService.getTenDeputies(next[0].href);
-    this.hasPages();
-  }
-
-  private hasPages() {
-    console.log(this.deputiesService.links);
-    this.hasNext = !!this.deputiesService.links.filter(
-      (link) => link.rel === 'next'
-    ).length;
-    this.hasPrevious = !!this.deputiesService.links.filter(
-      (link) => link.rel === 'previous'
-    ).length;
-    // console.log(this.hasPrevious);
+    await this.deputiesService.getTenDeputies(previous[0].href);
   }
 }
 

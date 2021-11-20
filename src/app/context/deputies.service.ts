@@ -10,6 +10,10 @@ import api from '../utils/request';
 export class DeputiesService {
   public deputiesData: Subject<Deputy> = new Subject();
   public links: Links[] = [];
+  public pagination = {
+    next: true,
+    previous: false,
+  };
   constructor() {}
 
   setDeputiesData(newValue: Deputy) {
@@ -28,5 +32,15 @@ export class DeputiesService {
         this.links = response.data.links;
       })
       .catch((err) => console.log(err));
+    this.hasPages();
+  }
+
+  private hasPages() {
+    this.pagination.next = !!this.links.filter((link) => link.rel === 'next')
+      .length;
+    this.pagination.previous = !!this.links.filter(
+      (link) => link.rel === 'previous'
+    ).length;
+    console.log(this.links);
   }
 }

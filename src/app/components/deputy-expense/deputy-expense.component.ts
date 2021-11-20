@@ -38,7 +38,6 @@ export class DeputyExpenseComponent implements OnInit {
       `https://dadosabertos.camara.leg.br/api/v2/deputados/${this.deputyId}/despesas?itens=10&ordenarPor=mes&ordem=desc`
     );
     this.pagination = this.deputyExpenseService.pagination;
-    console.log(this.pagination);
   }
 
   async nextPage() {
