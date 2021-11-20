@@ -48,8 +48,28 @@ export class DeputyComponent implements OnInit {
     this.lastEvent = [
       this.allEvents.filter((event) => event.situacao.includes('Encerrada'))[0],
     ];
-    this.nextEvent = [
-      this.allEvents.filter((event) => event.situacao.includes('Convocada'))[0],
-    ];
+    this.nextEvent = this.allEvents.filter((event) =>
+      event.situacao.includes('Convocada')
+    );
+    if (!!this.nextEvent.length) {
+      this.nextEvent = [this.nextEvent[0]];
+    }
+    this.lastEvent[0].dataHoraInicio =
+      new Date(this.lastEvent[0].dataHoraFim)
+        .toLocaleString()
+        .slice(0, 16)
+        .replace(' ', ' - ') + 'h';
+    this.lastEvent[0].dataHoraFim =
+      new Date(this.lastEvent[0].dataHoraFim)
+        .toLocaleString()
+        .slice(0, 16)
+        .replace(' ', ' - ') + 'h';
+    // if (!!this.nextEvent.length) {
+    //   this.nextEvent[0].dataHoraInicio =
+    //     new Date(this.nextEvent[0].dataHoraFim)
+    //       .toLocaleString()
+    //       .slice(0, 16)
+    //       .replace(' ', ' - ') + 'h';
+    // }
   }
 }

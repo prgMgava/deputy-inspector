@@ -1,54 +1,69 @@
 <!-- TODO: Fazer icone com situação, e targeta com situaçao eleitoral -->
-<div>
+<app-header></app-header>
+<div class="container_deputy">
   <h1>{{ deputy.nomeCivil }}</h1>
   <div>
-    <figure>
-      <img
-        [src]="deputy.ultimoStatus.urlFoto"
-        [alt]="'Foto do deputado' + deputy.nomeCivil"
-      />
-    </figure>
-    <p><small>Nome: </small>{{ deputy.ultimoStatus.nome }}</p>
+    <div class="main_info">
+      <figure>
+        <img
+          [src]="deputy.ultimoStatus.urlFoto"
+          [alt]="'Foto do deputado' + deputy.nomeCivil"
+        />
+      </figure>
+      <div>
+        <p><small>Nome: </small>{{ deputy.ultimoStatus.nome }}</p>
 
-    <p><small>Partido: </small> {{ deputy.ultimoStatus.siglaPartido }}</p>
-    <p><small>Estado(UF): </small>{{ deputy.ultimoStatus.siglaUf }}</p>
-    <p>Contato:</p>
-    <p><small>Email: </small>{{ deputy.ultimoStatus.email }}</p>
-    <p><small>Telefone: </small>{{ deputy.ultimoStatus.gabinete.telefone }}</p>
-    <p><small>WebSite: </small>{{ deputy.urlWebsite || "----" }}</p>
+        <p><small>Partido: </small> {{ deputy.ultimoStatus.siglaPartido }}</p>
+        <p><small>Estado(UF): </small>{{ deputy.ultimoStatus.siglaUf }}</p>
+        <p><small>Email: </small>{{ deputy.ultimoStatus.email }}</p>
+        <p>
+          <small>Telefone: </small>{{ deputy.ultimoStatus.gabinete.telefone }}
+        </p>
+        <p *ngIf="!!deputy.urlWebsite?.length">
+          <small>WebSite: </small>{{ deputy.urlWebsite }}
+        </p>
+      </div>
+    </div>
+    <hr />
+  </div>
+  <div class="container_events">
+    <div>
+      <h5>Último evento participado:</h5>
+      <div *ngFor="let event of lastEvent">
+        <p>{{ event.descricaoTipo }}</p>
+        <p><small>Data e hora de início: </small>{{ event.dataHoraInicio }}</p>
+        <p><small>Data e hora de término: </small>{{ event.dataHoraFim }}</p>
+        <p class="description">Descrição:</p>
+        <p>{{ event.descricao }}</p>
+      </div>
+    </div>
+    <div>
+      <h5>Próximo evento:</h5>
+      <div *ngIf="!nextEvent.length">
+        <b>Nenhum evento agendado, consulte novamente em outro momento</b>
+      </div>
+      <div *ngIf="!!nextEvent.length">
+        <div *ngFor="let event of nextEvent">
+          <p>{{ event.descricaoTipo }}</p>
+          <p>
+            <small>Data e hora de início: </small>{{ event.dataHoraInicio }}
+          </p>
+          <p>Descrição:</p>
+          <p>{{ event.descricao }}</p>
+        </div>
+      </div>
+    </div>
   </div>
   <div>
-    <p><small>Gabinete: </small>{{ deputy.ultimoStatus.gabinete.nome }}</p>
-    <p><small>Prédio: </small>{{ deputy.ultimoStatus.gabinete.predio }}</p>
-    <p><small>Sala: </small>{{ deputy.ultimoStatus.gabinete.sala }}</p>
-    <p><small>Andar: </small>{{ deputy.ultimoStatus.gabinete.andar }}</p>
-    <p><small></small></p>
+    <a [routerLink]="['/']">Voltar</a>
   </div>
 </div>
+
+<!-- 
 <div>
-  <div>
-    <h5>Último evento participado</h5>
-    <div *ngFor="let event of lastEvent">
-      <p>{{ event.descricaoTipo }}</p>
-      <p><small>Data e hora de início: </small>{{ event.dataHoraInicio }}</p>
-      <p><small>Data e hora de término: </small>{{ event.dataHoraFim }}</p>
-      <p>Descrição:</p>
-      <p>{{ event.descricao }}</p>
-    </div>
-  </div>
-  <div>
-    <h5>Próximo evento:</h5>
-    <div *ngIf="!nextEvent.length">
-      <p>Nenhum evento agendado, consulte novamente em outro momento</p>
-    </div>
-    <div *ngFor="let event of nextEvent">
-      <p>{{ event.descricaoTipo }}</p>
-      <p><small>Data e hora de início: </small>{{ event.dataHoraInicio }}</p>
-      <p>Descrição:</p>
-      <p>{{ event.descricao }}</p>
-    </div>
-  </div>
-</div>
-<div>
-  <a [routerLink]="['/']">Voltar</a>
-</div>
+  <p><small>Gabinete: </small>{{ deputy.ultimoStatus.gabinete.nome }}</p>
+  <p><small>Prédio: </small>{{ deputy.ultimoStatus.gabinete.predio }}</p>
+  <p><small>Sala: </small>{{ deputy.ultimoStatus.gabinete.sala }}</p>
+  <p><small>Andar: </small>{{ deputy.ultimoStatus.gabinete.andar }}</p>
+  <p><small></small></p>
+</div> -->
