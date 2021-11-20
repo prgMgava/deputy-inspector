@@ -16,7 +16,10 @@ interface Pagination {
 @Component({
   selector: 'app-deputy-expense',
   templateUrl: './deputy-expense.component.html',
-  styleUrls: ['./deputy-expense.component.css'],
+  styleUrls: [
+    './deputy-expense.component.css',
+    '../form-search/form-search.component.css',
+  ],
 })
 export class DeputyExpenseComponent implements OnInit {
   public deputyExpense: Expense[] = [];
