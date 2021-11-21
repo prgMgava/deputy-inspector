@@ -55,23 +55,30 @@ thead {
   background: #000;
   color: var(--p-light);
   justify-content: space-between;
+  height: 50px;
 }
 tr.t-header {
   width: 100%;
   display: flex;
+  align-items: center;
+}
+
+th {
+  display: flex;
+  justify-content: center;
 }
 
 tr.t-header th {
   display: flex;
-  justify-content: flex-start;
-  padding-left: 4px;
+  font-size: 1rem;
 }
 
 tr.rows {
   display: flex;
   width: 100%;
   padding: 4px 0;
-  height: 100px;
+  height: 5 0px;
+  text-align: center;
 }
 
 tr:nth-of-type(odd).rows {

@@ -31,8 +31,14 @@
       <h5>Último evento participado:</h5>
       <div *ngFor="let event of lastEvent">
         <p>{{ event.descricaoTipo }}</p>
-        <p><small>Data e hora de início: </small>{{ event.dataHoraInicio }}</p>
-        <p><small>Data e hora de término: </small>{{ event.dataHoraFim }}</p>
+        <p>
+          <small>Data e hora de início: </small
+          >{{ (event.dataHoraInicio | date: "dd/MM/yyyy - hh:mm") + "h" }}
+        </p>
+        <p>
+          <small>Data e hora de término: </small
+          >{{ (event.dataHoraFim | date: "dd/MM/yyyy - hh:mm") + "h" }}
+        </p>
         <p class="description">Descrição:</p>
         <p>{{ event.descricao }}</p>
       </div>
@@ -46,7 +52,8 @@
         <div *ngFor="let event of nextEvent">
           <p>{{ event.descricaoTipo }}</p>
           <p>
-            <small>Data e hora de início: </small>{{ event.dataHoraInicio }}
+            <small>Data e hora de início: </small
+            >{{ (event.dataHoraInicio | date: "dd/MM/yyyy - hh:mm") + "h" }}
           </p>
           <p>Descrição:</p>
           <p>{{ event.descricao }}</p>
@@ -58,7 +65,6 @@
     <a [routerLink]="['/']">Voltar</a>
   </div>
 </div>
-<div class="container_deputy"></div>
 <app-deputy-expense></app-deputy-expense>
 
 <!-- 

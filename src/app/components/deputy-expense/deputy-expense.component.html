@@ -55,27 +55,75 @@
         <tr class="t-header">
           <th class="t-description">Descrição</th>
           <th class="t-provider">Fornecedor</th>
-          <th class="t-value">Valor(R$)</th>
+          <th class="t-value">Valor<br />(R$)</th>
           <th class="t-date">Data</th>
           <th class="t-document">Nota fiscal</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let expense of deputyExpense" class="rows">
-          <td class="t-description">{{ expense.tipoDespesa }}</td>
-          <td class="t-provider">{{ expense.nomeFornecedor }}</td>
-          <td class="t-value">{{ expense.valorDocumento }}</td>
-          <td class="t-date">{{ expense.dataDocumento }}</td>
-          <td class="t-document">{{ expense.tipoDocumento }}</td>
+          <td class="t-description">
+            {{ expense.tipoDespesa | titlecase }}
+          </td>
+          <td class="t-provider">
+            {{ expense.nomeFornecedor | titlecase }}
+          </td>
+          <td class="t-value">
+            {{ expense.valorDocumento | currency }}
+          </td>
+          <td class="t-date">
+            {{ expense.dataDocumento | date: "dd/MM/yy" }}
+          </td>
+          <td class="t-document">
+            <a [href]="expense.urlDocumento" target="_blank">{{
+              expense.tipoDocumento
+            }}</a>
+          </td>
         </tr>
       </tbody>
-      <!-- <h3></h3>
-      <p><small>Fornecedor: </small></p>
-      <p><small>Valor: </small>R$ {{ expense.valorDocumento }}</p>
-      <p><small>Realizada em: </small>{{ expense.dataDocumento }}</p>
-      <a [href]="expense.urlDocumento" target="blank"
-        >Consulte a {{ expense.tipoDocumento }}</a
-      > -->
     </table>
+    <div class="container-table">
+      <table class="table">
+        <thead>
+          <tr class="t-header">
+            <th>Descrição</th>
+            <th>
+              Valor <br />
+              R$
+            </th>
+            <th>Data</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ lastExpense.tipoDespesa }}</td>
+            <td>{{ lastExpense.valorDocumento | currency }}</td>
+            <td>{{ lastExpense.dataDocumento | date: "dd/MM/yy" }}</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table">
+        <thead>
+          <tr class="t-header">
+            <th>Descrição</th>
+            <th>
+              Valor <br />
+              R$
+            </th>
+            <th>Data</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ mostCostExpense.tipoDespesa }}</td>
+            <td>{{ mostCostExpense.valorDocumento | currency }}</td>
+            <td>{{ mostCostExpense.dataDocumento | date: "dd/MM/yy" }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
+
+<button (click)="getMostCostlyExpense()">click</button>

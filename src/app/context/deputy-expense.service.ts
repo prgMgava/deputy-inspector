@@ -14,6 +14,7 @@ export class DeputyExpenseService {
     next: true,
     previous: false,
   };
+  public specificExpense: Expense[] = [];
 
   constructor() {}
 
@@ -37,11 +38,18 @@ export class DeputyExpenseService {
   }
 
   private hasPages() {
-    console.log(this.links);
     this.pagination.next = !!this.links.filter((link) => link.rel === 'next')
       .length;
     this.pagination.previous = !!this.links.filter(
       (link) => link.rel === 'previous'
     ).length;
+  }
+
+  async getSpecificExpense(path: string) {
+    const data = await axios
+      .get(path)
+      .then((response) => response.data.dados)
+      .catch((err) => console.log(err));
+    return data;
   }
 }

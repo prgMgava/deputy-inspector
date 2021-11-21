@@ -41,6 +41,5 @@ export class DeputiesService {
     this.pagination.previous = !!this.links.filter(
       (link) => link.rel === 'previous'
     ).length;
-    console.log(this.links);
   }
 }

@@ -5,6 +5,7 @@ import { DeputiesService } from 'src/app/context/deputies.service';
 import { FormDataDeputy } from 'src/app/models/formData.models';
 import { State } from 'src/app/models/stateModels';
 import { states } from 'src/app/utils/states';
+import { formatQuery } from 'src/app/utils/string-formater';
 
 @Component({
   selector: 'app-form-search',
@@ -32,7 +33,7 @@ export class FormSearchComponent implements OnInit {
       siglaPartido: this.form.value.siglaPartido,
       siglaSexo: this.form.value.siglaSexo,
     };
-    const query = this.formatedQuery(data);
+    const query = formatQuery(data);
     if (!!query) {
       this.deputiesService.getTenDeputies(
         `https://dadosabertos.camara.leg.br/api/v2/deputados?itens=10&${query}`
@@ -41,13 +42,4 @@ export class FormSearchComponent implements OnInit {
   }
 
   ngOnInit(): void {}
-
-  formatedQuery(data: FormDataDeputy) {
-    const parameters = Object.entries(data);
-    const query = parameters
-      .filter((item) => !!item[1])
-      .map((item) => item.join('='))
-      .join('&');
-    return query;
-  }
 }

@@ -1,3 +1,4 @@
+import { formatCurrency } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -7,6 +8,7 @@ import { Expense } from 'src/app/models/expenses.models';
 import { FormDataExpense } from 'src/app/models/formData.models';
 import { getYears } from 'src/app/utils/date';
 import { months } from 'src/app/utils/date';
+import { formatExpenseQuery } from 'src/app/utils/string-formater';
 
 interface Pagination {
   next: boolean;
@@ -28,6 +30,9 @@ export class DeputyExpenseComponent implements OnInit {
   public selectYears: Years[] = getYears();
   public selectMonths: Months[] = months;
   public form: FormGroup;
+  public lastExpense: Expense = {} as Expense;
+  public specificExpense: Expense[] = [];
+  public mostCostExpense: Expense = {} as Expense;
 
   constructor(
     private deputyExpenseService: DeputyExpenseService,
@@ -49,7 +54,7 @@ export class DeputyExpenseComponent implements OnInit {
     this.route.params.subscribe((params) => {
       this.deputyId = params['id'];
     });
-    this.fetchDeputies();
+    this.fetchExpenses();
   }
 
   onSubmit() {
@@ -59,7 +64,7 @@ export class DeputyExpenseComponent implements OnInit {
       valor: this.form.value.valor,
       ordem: this.form.value.ordem,
     };
-    const query = this.formatedQuery(data);
+    const query = formatExpenseQuery(data);
     if (!!query) {
       this.deputyExpenseService.getExpenses(
         `https://dadosabertos.camara.leg.br/api/v2/deputados/${this.deputyId}/despesas?itens=10&${query}`
@@ -67,10 +72,15 @@ export class DeputyExpenseComponent implements OnInit {
     }
   }
 
-  private async fetchDeputies() {
+  private async fetchExpenses() {
     await this.deputyExpenseService.getExpenses(
       `https://dadosabertos.camara.leg.br/api/v2/deputados/${this.deputyId}/despesas?itens=10&ordenarPor=mes&ordem=desc`
     );
+    this.specificExpense = await this.deputyExpenseService.getSpecificExpense(
+      `https://dadosabertos.camara.leg.br/api/v2/deputados/${this.deputyId}/despesas?ordenarPor=mes&ordem=desc&itens=100`
+    );
+    this.mostCostExpense = this.getMostCostlyExpense();
+    this.lastExpense = this.getLastExpense();
     this.pagination = this.deputyExpenseService.pagination;
   }
 
@@ -89,12 +99,17 @@ export class DeputyExpenseComponent implements OnInit {
     await this.deputyExpenseService.getExpenses(previous[0].href);
   }
 
-  private formatedQuery(data: FormDataExpense) {
-    const parameters = Object.entries(data);
-    const query = parameters
-      .filter((item) => !!item[1] && item[0] != 'valor')
-      .map((item) => item.join('='))
-      .join('&');
-    return query;
+  getMostCostlyExpense() {
+    const mostCost = Math.max(
+      ...this.specificExpense.map((expense) => expense.valorDocumento)
+    );
+    const expenseMostCost = this.specificExpense.filter(
+      (expense) => expense.valorDocumento === mostCost
+    );
+    return expenseMostCost[0];
+  }
+
+  getLastExpense() {
+    return this.specificExpense[0];
   }
 }
