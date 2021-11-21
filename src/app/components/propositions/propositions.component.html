@@ -1,0 +1,19 @@
+<div class="container-proposition">
+  <h2>Projetos de lei</h2>
+  <div class="container_button">
+    <button [disabled]="!pagination.previous" (click)="previousPage()">
+      Anterior
+    </button>
+    <button [disabled]="!pagination.next" (click)="nextPage()">Próxima</button>
+  </div>
+  <div class="propositions">
+    <div *ngFor="let proposition of propositions" class="proposition-card">
+      <div class="flex">
+        <p><small>Número: </small>{{ proposition.numero }}</p>
+        <p><small>Ano: </small>{{ proposition.ano }}</p>
+      </div>
+      <small>Ementa: </small>
+      <p class="ementa">{{ proposition.ementa }}</p>
+    </div>
+  </div>
+</div>

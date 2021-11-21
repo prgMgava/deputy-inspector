@@ -13,6 +13,8 @@ import { DeputyExpenseComponent } from './components/deputy-expense/deputy-expen
 import { LOCALE_ID } from '@angular/core';
 import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
+import { PropositionsComponent } from './components/propositions/propositions.component';
+import { PropositionComponent } from './views/proposition/proposition.component';
 
 registerLocaleData(localePt, 'pt-BR');
 
@@ -25,6 +27,8 @@ registerLocaleData(localePt, 'pt-BR');
     DeputyCardsComponent,
     DeputyComponent,
     DeputyExpenseComponent,
+    PropositionsComponent,
+    PropositionComponent,
   ],
   imports: [AppRoutingModule, NoopAnimationsModule, ReactiveFormsModule],
   providers: [
