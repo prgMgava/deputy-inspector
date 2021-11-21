@@ -180,3 +180,19 @@ form.search-expense {
   border: none;
   border-radius: 4px;
 }
+
+.container-table {
+  display: flex;
+}
+
+.tf-description {
+  width: 70%;
+}
+
+.tf-value {
+  width: 15%;
+}
+
+.tf-date {
+  width: 15%;
+}

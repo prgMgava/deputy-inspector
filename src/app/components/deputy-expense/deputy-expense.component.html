@@ -86,39 +86,46 @@
       <table class="table">
         <thead>
           <tr class="t-header">
-            <th>Descrição</th>
-            <th>
+            <th class="tf-description">Descrição última compra</th>
+            <th class="tf-value">
               Valor <br />
               R$
             </th>
-            <th>Data</th>
+            <th class="tf-date">Data</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>{{ lastExpense.tipoDespesa }}</td>
-            <td>{{ lastExpense.valorDocumento | currency }}</td>
-            <td>{{ lastExpense.dataDocumento | date: "dd/MM/yy" }}</td>
-            <td></td>
+          <tr class="rows">
+            <td class="tf-description">{{ lastExpense.tipoDespesa }}</td>
+            <td class="tf-value">
+              {{ lastExpense.valorDocumento | currency }}
+            </td>
+            <td class="tf-date">
+              {{ lastExpense.dataDocumento | date: "dd/MM/yy" }}
+            </td>
           </tr>
         </tbody>
       </table>
       <table class="table">
         <thead>
           <tr class="t-header">
-            <th>Descrição</th>
-            <th>
+            <th class="tf-description">Descrição compra mais cara</th>
+            <th class="tf-value">
               Valor <br />
               R$
             </th>
-            <th>Data</th>
+            <th class="tf-date">Data</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>{{ mostCostExpense.tipoDespesa }}</td>
-            <td>{{ mostCostExpense.valorDocumento | currency }}</td>
-            <td>{{ mostCostExpense.dataDocumento | date: "dd/MM/yy" }}</td>
+          <tr class="rows">
+            <td class="tf-description">{{ mostCostExpense.tipoDespesa }}</td>
+            <td clas="tf-value">
+              {{ mostCostExpense.valorDocumento | currency }}
+            </td>
+            <td class="tf-date">
+              {{ mostCostExpense.dataDocumento | date: "dd/MM/yy" }}
+            </td>
           </tr>
         </tbody>
       </table>
