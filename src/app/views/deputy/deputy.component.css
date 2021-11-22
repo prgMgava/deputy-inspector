@@ -90,6 +90,12 @@ div.flex-tags span:hover {
   background: purple;
 }
 
+.button-back {
+  position: fixed;
+  bottom: 32px;
+  right: 64px;
+}
+
 @media only screen and (max-width: 600px) {
   .container_deputy .main_info {
     flex-direction: column;

@@ -42,6 +42,10 @@ form.search {
   font-size: 1.2rem;
   font-weight: 700;
   text-transform: uppercase;
+  display: flex;
+  gap: 8px;
+  width: 160px;
+  align-self: center;
 }
 
 .search button:hover {
