@@ -1,31 +1,30 @@
 <app-header></app-header>
-<div>
-  <h2>{{ proposition.descricaoTipo }}</h2>
+<div class="container-proposition">
+  <p><small>Tipo de projeto: </small>{{ proposition.descricaoTipo }}</p>
   <p>
-    <small>Situação: </small
+    <small>Situação do projeto: </small
     >{{
       proposition.statusProposicao?.descricaoSituacao ||
-        "descrição da situação não informado"
+        "Descrição da situação não informado"
     }}
   </p>
-  <div>
-    <p><small>Número: </small>{{ proposition.numero }}</p>
-    <p>
-      <small>Data: </small
-      >{{ proposition.dataApresentacao | date: "dd/MM/yy - hh-mm" }}h
-    </p>
-  </div>
+  <p><small>Número do projeto: </small>{{ proposition.numero }}</p>
+  <p>
+    <small>Data de apresentação: </small
+    >{{ proposition.dataApresentacao | date: "dd/MM/yy - hh:mm" }}h
+  </p>
   <small>Ementa: </small>
   <p>{{ proposition.ementa }}</p>
   <small *ngIf="!!proposition.ementaDetalhada">Ementa detalhada: </small>
   <p>{{ proposition.ementaDetalhada }}</p>
-  <p>
+  <p class="link">
+    Consulte mais informações sobre o projeto
     <a
       [href]="proposition.statusProposicao?.url"
       *ngIf="!!proposition.statusProposicao?.url"
       target="_blank"
-      >Consulte aqui</a
+      >aqui.</a
     >
   </p>
 </div>
-<button [routerLink]="redirectTo()">Voltar</button>
+<button [routerLink]="redirectTo()" class="button-back">Voltar</button>

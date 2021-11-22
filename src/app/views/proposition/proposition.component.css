@@ -1,0 +1,35 @@
+.container-proposition {
+  background: var(--white);
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 32px;
+  padding: 32px;
+  border-radius: 4px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.container-proposition small {
+  font-weight: 200;
+  color: var(--p-dark);
+}
+
+.container-proposition a {
+  color: var(--p-dark);
+}
+
+.button-back {
+  background: var(--p-light);
+  border: none;
+  padding: 8px;
+  border-radius: 4px;
+  color: var(--white);
+  text-transform: uppercase;
+  font-weight: 900;
+  display: block;
+  margin: 32px auto;
+}
+
+.link {
+  font-weight: 800;
+  color: var(--primary);
+}
