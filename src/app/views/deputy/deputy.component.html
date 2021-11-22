@@ -37,8 +37,8 @@
     <hr />
   </div>
   <div class="container_events">
-    <div>
-      <h5>Último evento participado:</h5>
+    <h5>Último evento participado:</h5>
+    <div *ngIf="!!lastEvent.length">
       <div *ngFor="let event of lastEvent">
         <p>{{ event.descricaoTipo }}</p>
         <p>
@@ -52,6 +52,9 @@
         <p class="description">Descrição:</p>
         <p>{{ event.descricao }}</p>
       </div>
+    </div>
+    <div *ngIf="!lastEvent.length">
+      <b>Nenhum há dados</b>
     </div>
     <div>
       <h5>Próximo evento:</h5>

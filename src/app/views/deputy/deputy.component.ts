@@ -45,28 +45,19 @@ export class DeputyComponent implements OnInit {
   }
 
   getEvents() {
-    this.lastEvent = [
-      this.allEvents.filter((event) => event.situacao.includes('Encerrada'))[0],
-    ];
+    this.lastEvent = this.allEvents.filter((event) =>
+      event.situacao.includes('Encerrada')
+    );
+
+    if (!!this.lastEvent.length) {
+      this.lastEvent = [this.lastEvent[0]];
+    }
     this.nextEvent = this.allEvents.filter((event) =>
       event.situacao.includes('Convocada')
     );
     if (!!this.nextEvent.length) {
       this.nextEvent = [this.nextEvent[0]];
     }
-    // this.lastEvent[0].dataHoraInicio = formatEventDate(
-    //   this.allEvents[0].dataHoraInicio
-    // );
-    // this.lastEvent[0].dataHoraFim = formatEventDate(
-    //   this.allEvents[0].dataHoraFim
-    // );
-    // TODO:
-    // if (!!this.nextEvent.length) {
-    //   this.nextEvent[0].dataHoraInicio =
-    //     new Date(this.nextEvent[0].dataHoraFim)
-    //       .toLocaleString()
-    //       .slice(0, 16)
-    //       .replace(' ', ' - ') + 'h';
-    // }
+    console.log(this.nextEvent);
   }
 }

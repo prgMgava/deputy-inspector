@@ -18,7 +18,7 @@ export const months = [
 export const getYears = (): Years[] => {
   const listYears: Years[] = new Array();
   const currentYear = new Date().getFullYear();
-  for (let olderYear = 2019; olderYear <= currentYear; olderYear++) {
+  for (let olderYear = 2000; olderYear <= currentYear; olderYear++) {
     listYears.push({ ano: olderYear });
   }
   return listYears;

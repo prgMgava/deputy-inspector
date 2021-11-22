@@ -18,7 +18,7 @@
       <mat-icon>arrow_right</mat-icon>
     </button>
   </div>
-  <div class="propositions">
+  <div class="propositions" *ngIf="!!propositions.length">
     <div *ngFor="let proposition of propositions" class="proposition-card">
       <div class="flex">
         <p><small>Número: </small>{{ proposition.numero }}</p>
@@ -31,4 +31,5 @@
       >
     </div>
   </div>
+  <h1 *ngIf="!propositions.length">Não há projetos de lei</h1>
 </div>

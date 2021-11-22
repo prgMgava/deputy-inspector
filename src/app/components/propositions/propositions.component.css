@@ -60,6 +60,9 @@
   gap: 8px;
 }
 
+.container-proposition h1 {
+  text-align: center;
+}
 @media only screen and (max-width: 600px) {
   .propositions {
     flex-direction: column;

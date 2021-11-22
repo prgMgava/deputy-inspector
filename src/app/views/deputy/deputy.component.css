@@ -74,6 +74,8 @@ div.flex-tags span {
   border-radius: 4px;
   font-weight: 800;
   cursor: help;
+  text-align: center;
+  font-size: 0.7rem;
 }
 
 div.flex-tags span:hover {
@@ -102,5 +104,8 @@ div.flex-tags span:hover {
   }
   .container_deputy .main_info figure {
     text-align: center;
+  }
+  div.flex-tags span {
+    font-size: 0.5rem;
   }
 }
