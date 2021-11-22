@@ -60,7 +60,7 @@
           <th class="t-document">Nota fiscal</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody *ngIf="!!deputyExpense.length">
         <tr *ngFor="let expense of deputyExpense" class="rows">
           <td class="t-description">
             {{ expense.tipoDespesa | titlecase }}
@@ -79,6 +79,11 @@
               expense.tipoDocumento
             }}</a>
           </td>
+        </tr>
+      </tbody>
+      <tbody *ngIf="!deputyExpense.length" class="not-found">
+        <tr>
+          <td rowspan="5">Nenhuma despesa encontrada</td>
         </tr>
       </tbody>
     </table>

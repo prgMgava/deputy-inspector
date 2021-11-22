@@ -196,3 +196,9 @@ form.search-expense {
 .tf-date {
   width: 15%;
 }
+
+.not-found td {
+  font-size: 1.4rem;
+  padding: 16px 0;
+  text-align: center;
+}
