@@ -83,6 +83,7 @@ tr.rows {
 
 tr:nth-of-type(odd).rows {
   background: #eeeeee;
+  min-height: 48px;
 }
 
 th.t-description {
@@ -91,18 +92,22 @@ th.t-description {
 
 .t-description {
   width: 30%;
+  word-break: break-all;
 }
 
 .t-provider {
   width: 35%;
+  word-break: break-all;
 }
 
 .t-value {
   width: 10%;
+  /* word-break: break-all; */
 }
 
 .t-date {
   width: 15%;
+  word-break: break-all;
 }
 
 .t-document {
@@ -218,17 +223,41 @@ table mat-icon {
 }
 
 @media only screen and (max-width: 800px) {
-  .search-expense {
+  form.search-expense {
     flex-direction: column;
+    width: 60%;
   }
   .inputs-expense {
     flex-direction: column;
+    width: 60%;
+    align-self: center;
+    margin: 0;
   }
   .container-table {
     flex-direction: column;
   }
   .button-expense {
     flex-direction: column;
+    width: 60%;
+    align-self: center;
+    margin: 0;
+  }
+
+  .search-expense button {
+    width: 160px;
+    align-self: center;
+  }
+  .container form h2 {
+    padding-left: 32px;
+    align-self: flex-start;
+  }
+
+  table {
+    font-size: 0.6rem;
+  }
+
+  table tr th {
+    font-size: 0.7rem;
   }
 }
 
