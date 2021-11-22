@@ -1,10 +1,15 @@
-<div class="container_button">
+<div class="container_button" *ngIf="!!deputies.length">
   <button [disabled]="!pagination.previous" (click)="previousPage()">
     Anterior
   </button>
   <button [disabled]="!pagination.next" (click)="nextPage()">Próxima</button>
 </div>
 <div class="container_cards">
+  <div *ngIf="!deputies.length" class="not-found">
+    <h1>Nenhum resultado encontrado!</h1>
+    <img src="../../../assets/images/no-data.svg" alt="Not found" />
+    <small>Tente novamente</small>
+  </div>
   <div
     *ngFor="let deputy of deputies"
     class="card_deputy"
