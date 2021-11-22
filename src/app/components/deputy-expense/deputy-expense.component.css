@@ -111,6 +111,7 @@ th.t-description {
 
 form.search-expense {
   display: flex;
+  flex-wrap: wrap;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   align-self: center;
@@ -198,10 +199,12 @@ form.search-expense {
 
 .tf-value {
   width: 15%;
+  word-break: break-all;
 }
 
 .tf-date {
   width: 15%;
+  word-break: break-all;
 }
 
 .not-found td {
@@ -212,4 +215,22 @@ form.search-expense {
 
 table mat-icon {
   color: var(--p-light);
+}
+
+@media only screen and (max-width: 800px) {
+  .search-expense {
+    flex-direction: column;
+  }
+  .inputs-expense {
+    flex-direction: column;
+  }
+  .container-table {
+    flex-direction: column;
+  }
+  .button-expense {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 425px) {
 }

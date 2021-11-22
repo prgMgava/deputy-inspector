@@ -42,11 +42,14 @@ form.search {
   font-size: 1.2rem;
   font-weight: 700;
   text-transform: uppercase;
-  display: flex;
-  justify-content: center;
-  gap: 8px;
 }
 
 .search button:hover {
   background: var(--p-dark);
+}
+
+@media only screen and (max-width: 545px) {
+  form.search {
+    margin: 4px 16px;
+  }
 }

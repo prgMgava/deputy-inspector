@@ -53,8 +53,24 @@
 
 .propositions a {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   color: var(--white);
   text-decoration: none;
   gap: 8px;
+}
+
+@media only screen and (max-width: 600px) {
+  .propositions {
+    flex-direction: column;
+  }
+
+  .proposition-card {
+    width: 90%;
+    border-top: solid var(--white);
+    border-left: none;
+    border-right: none;
+    margin: 0 auto;
+    padding: 16px 0 8px;
+  }
 }

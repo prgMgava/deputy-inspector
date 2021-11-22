@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
   margin: 16px auto;
-  width: max-content;
+  max-width: max-content;
   padding: 16px 64px;
   border-radius: 4px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
@@ -88,4 +88,13 @@ div.flex-tags span:hover {
 }
 .tag-scholarity {
   background: purple;
+}
+
+@media only screen and (max-width: 600px) {
+  .container_deputy .main_info {
+    flex-direction: column;
+  }
+  .container_deputy .main_info figure {
+    text-align: center;
+  }
 }

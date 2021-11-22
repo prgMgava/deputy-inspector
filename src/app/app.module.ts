@@ -16,6 +16,7 @@ import { registerLocaleData } from '@angular/common';
 import { PropositionsComponent } from './components/propositions/propositions.component';
 import { PropositionComponent } from './views/proposition/proposition.component';
 import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 
 registerLocaleData(localePt, 'pt-BR');
 
@@ -37,6 +38,7 @@ registerLocaleData(localePt, 'pt-BR');
     NoopAnimationsModule,
     ReactiveFormsModule,
     MatIconModule,
+    MatMenuModule,
   ],
   providers: [
     DeputiesService,
