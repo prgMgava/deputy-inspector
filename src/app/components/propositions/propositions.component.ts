@@ -33,7 +33,7 @@ export class PropositionsComponent implements OnInit {
   }
 
   private async fetchExpenses() {
-    await this.propositionsService.getExpenses(
+    await this.propositionsService.getPropositions(
       `https://dadosabertos.camara.leg.br/api/v2/proposicoes?idDeputadoAutor=${this.deputyId}&itens=5&ordenarPor=numero&ordem=asc`
     );
 
@@ -44,7 +44,7 @@ export class PropositionsComponent implements OnInit {
     const next = this.propositionsService.links.filter(
       (link) => link.rel === 'next'
     );
-    await this.propositionsService.getExpenses(next[0].href);
+    await this.propositionsService.getPropositions(next[0].href);
   }
 
   async previousPage() {
@@ -52,6 +52,11 @@ export class PropositionsComponent implements OnInit {
       (link) => link.rel === 'previous'
     );
 
-    await this.propositionsService.getExpenses(previous[0].href);
+    await this.propositionsService.getPropositions(previous[0].href);
+  }
+
+  redirectTo(propositionId: number) {
+    localStorage.setItem('deputyId', this.deputyId.toString());
+    return ['/proposition', propositionId];
   }
 }

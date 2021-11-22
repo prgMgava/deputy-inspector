@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import axios from 'axios';
 import { Observable, Subject } from 'rxjs';
 import { Links } from '../models/deputies.models';
-import { Propositions } from '../models/propositions';
+import { Proposition, Propositions } from '../models/propositions';
 
 @Injectable({
   providedIn: 'root',
@@ -25,7 +25,7 @@ export class PropositionsService {
     return this.deputyExpenseData.asObservable();
   }
 
-  async getExpenses(path: string) {
+  async getPropositions(path: string) {
     const data = await axios
       .get(path)
       .then((response) => {
@@ -42,5 +42,14 @@ export class PropositionsService {
     this.pagination.previous = !!this.links.filter(
       (link) => link.rel === 'previous'
     ).length;
+  }
+
+  async getSpecificProposition(path: string) {
+    const data: Proposition = await axios
+      .get(path)
+      .then((response) => response.data.dados)
+      .catch((err) => console.log(err));
+
+    return data;
   }
 }

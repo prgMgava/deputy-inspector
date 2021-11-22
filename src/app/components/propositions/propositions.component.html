@@ -14,6 +14,9 @@
       </div>
       <small>Ementa: </small>
       <p class="ementa">{{ proposition.ementa }}</p>
+      <a [routerLink]="redirectTo(proposition.id)" routerLinkActive="active"
+        >click</a
+      >
     </div>
   </div>
 </div>

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PropositionsComponent } from './components/propositions/propositions.component';
 import { DeputyComponent } from './views/deputy/deputy.component';
 import { HomeComponent } from './views/home/home.component';
+import { PropositionComponent } from './views/proposition/proposition.component';
 
 const routes: Routes = [
   {
@@ -15,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: 'proposition/:id',
-    component: PropositionsComponent,
+    component: PropositionComponent,
   },
 ];
 

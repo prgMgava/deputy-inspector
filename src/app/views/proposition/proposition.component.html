@@ -1,1 +1,31 @@
-<p>proposition works!</p>
+<app-header></app-header>
+<div>
+  <h2>{{ proposition.descricaoTipo }}</h2>
+  <p>
+    <small>Situação: </small
+    >{{
+      proposition.statusProposicao?.descricaoSituacao ||
+        "descrição da situação não informado"
+    }}
+  </p>
+  <div>
+    <p><small>Número: </small>{{ proposition.numero }}</p>
+    <p>
+      <small>Data: </small
+      >{{ proposition.dataApresentacao | date: "dd/MM/yy - hh-mm" }}h
+    </p>
+  </div>
+  <small>Ementa: </small>
+  <p>{{ proposition.ementa }}</p>
+  <small *ngIf="!!proposition.ementaDetalhada">Ementa detalhada: </small>
+  <p>{{ proposition.ementaDetalhada }}</p>
+  <p>
+    <a
+      [href]="proposition.statusProposicao?.url"
+      *ngIf="!!proposition.statusProposicao?.url"
+      target="_blank"
+      >Consulte aqui</a
+    >
+  </p>
+</div>
+<button [routerLink]="redirectTo()">Voltar</button>

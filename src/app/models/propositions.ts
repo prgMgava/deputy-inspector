@@ -5,3 +5,13 @@ export interface Propositions {
   ano: number;
   ementa: string;
 }
+
+export interface Proposition extends Propositions {
+  dataApresentacao: string;
+  statusProposicao: {
+    descricaoSituacao: string | null;
+    url: string;
+  };
+  descricaoTipo: string;
+  ementaDetalhada: string | null;
+}
