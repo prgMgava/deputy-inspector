@@ -8,7 +8,7 @@
   --error: #ff0000;
   --font-color: #212529;
   --white: #fdfdfd;
-  --background: #f0f0f0;
+  --background: #f8f8f8;
 }
 
 body,
@@ -37,7 +37,7 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background: var(--pl-background);
+  background: var(--background);
 }
 
 input,
@@ -45,4 +45,30 @@ select {
   /* border: none; */
   background: none;
   outline: none;
+}
+
+.container-button {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 64px;
+  margin: 16px 0;
+}
+
+.container-button button {
+  background: var(--p-dark);
+  padding: 4px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--white);
+  border: none;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  align-items: center;
+}
+
+.container-button button:hover {
+  background: var(--p-light);
 }

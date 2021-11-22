@@ -1,8 +1,12 @@
-<div class="container_button" *ngIf="!!deputies.length">
+<div class="container-button" *ngIf="!!deputies.length">
   <button [disabled]="!pagination.previous" (click)="previousPage()">
+    <mat-icon>arrow_left</mat-icon>
     Anterior
   </button>
-  <button [disabled]="!pagination.next" (click)="nextPage()">Próxima</button>
+  <button [disabled]="!pagination.next" (click)="nextPage()">
+    Próxima
+    <mat-icon>arrow_right</mat-icon>
+  </button>
 </div>
 <div class="container_cards">
   <div *ngIf="!deputies.length" class="not-found">
@@ -12,7 +16,7 @@
   </div>
   <div
     *ngFor="let deputy of deputies"
-    class="card_deputy"
+    class="card-deputy"
     [routerLink]="['/deputy', deputy.id]"
     routerLinkActive="active"
   >

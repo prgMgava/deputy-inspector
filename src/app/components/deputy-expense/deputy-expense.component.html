@@ -38,16 +38,18 @@
           <option value="asc">Do menor para o maior</option>
         </select>
       </div>
-      <button (click)="onSubmit()">pesquisar</button>
+      <button (click)="onSubmit()">pesquisar<mat-icon>search</mat-icon></button>
     </div>
   </form>
   <div class="expenses">
-    <div class="container_button">
+    <div class="container-button" *ngIf="!!deputyExpense.length">
       <button [disabled]="!pagination.previous" (click)="previousPage()">
+        <mat-icon>arrow_left</mat-icon>
         Anterior
       </button>
       <button [disabled]="!pagination.next" (click)="nextPage()">
         Próxima
+        <mat-icon>arrow_right</mat-icon>
       </button>
     </div>
     <table class="table">
@@ -75,9 +77,9 @@
             {{ expense.dataDocumento | date: "dd/MM/yy" }}
           </td>
           <td class="t-document">
-            <a [href]="expense.urlDocumento" target="_blank">{{
-              expense.tipoDocumento
-            }}</a>
+            <a [href]="expense.urlDocumento" target="_blank"
+              ><mat-icon> insert_drive_file</mat-icon></a
+            >
           </td>
         </tr>
       </tbody>

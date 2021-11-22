@@ -152,6 +152,8 @@ form.search-expense {
   font-size: 1.2rem;
   font-weight: 700;
   text-transform: uppercase;
+  display: flex;
+  gap: 4px;
 }
 
 .search-expense button:hover {
@@ -169,12 +171,17 @@ form.search-expense {
   justify-content: center;
   gap: 64px;
   margin: 16px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
 }
 
 .container_button button {
   background: var(--p-dark);
-  padding: 8px;
-  font-size: 1rem;
+  padding: 12px;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--white);
   border: none;
@@ -201,4 +208,8 @@ form.search-expense {
   font-size: 1.4rem;
   padding: 16px 0;
   text-align: center;
+}
+
+table mat-icon {
+  color: var(--p-light);
 }

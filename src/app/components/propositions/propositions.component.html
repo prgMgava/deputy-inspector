@@ -1,10 +1,22 @@
 <div class="container-proposition">
   <h2>Projetos de lei</h2>
-  <div class="container_button">
-    <button [disabled]="!pagination.previous" (click)="previousPage()">
+  <div class="container-button" *ngIf="!!propositions.length">
+    <button
+      [disabled]="!pagination.previous"
+      (click)="previousPage()"
+      style="background: white; color: var(--primary)"
+    >
+      <mat-icon>arrow_left</mat-icon>
       Anterior
     </button>
-    <button [disabled]="!pagination.next" (click)="nextPage()">Próxima</button>
+    <button
+      [disabled]="!pagination.next"
+      (click)="nextPage()"
+      style="background: white; color: var(--primary)"
+    >
+      Próxima
+      <mat-icon>arrow_right</mat-icon>
+    </button>
   </div>
   <div class="propositions">
     <div *ngFor="let proposition of propositions" class="proposition-card">
@@ -15,7 +27,7 @@
       <small>Ementa: </small>
       <p class="ementa">{{ proposition.ementa }}</p>
       <a [routerLink]="redirectTo(proposition.id)" routerLinkActive="active"
-        >click</a
+        >Mais informações<mat-icon>link</mat-icon></a
       >
     </div>
   </div>

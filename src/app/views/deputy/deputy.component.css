@@ -28,7 +28,7 @@
 .container_deputy .main_info {
   display: flex;
 }
-.container_deputy .main_info div {
+.container_deputy .main_info > div {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -61,4 +61,31 @@
   color: var(--white);
   padding: 8px;
   border-radius: 4px;
+}
+
+div.flex-tags {
+  display: flex;
+}
+
+div.flex-tags span {
+  padding: 2px 8px;
+  margin-right: 8px;
+  color: var(--white);
+  border-radius: 4px;
+  font-weight: 800;
+  cursor: help;
+}
+
+div.flex-tags span:hover {
+  filter: brightness(30%);
+}
+
+.tag-situation {
+  background: var(--primary);
+}
+.tag-condition {
+  background: blue;
+}
+.tag-scholarity {
+  background: purple;
 }

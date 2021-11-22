@@ -15,6 +15,7 @@ import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
 import { PropositionsComponent } from './components/propositions/propositions.component';
 import { PropositionComponent } from './views/proposition/proposition.component';
+import { MatIconModule } from '@angular/material/icon';
 
 registerLocaleData(localePt, 'pt-BR');
 
@@ -30,7 +31,13 @@ registerLocaleData(localePt, 'pt-BR');
     PropositionsComponent,
     PropositionComponent,
   ],
-  imports: [AppRoutingModule, NoopAnimationsModule, ReactiveFormsModule],
+
+  imports: [
+    AppRoutingModule,
+    NoopAnimationsModule,
+    ReactiveFormsModule,
+    MatIconModule,
+  ],
   providers: [
     DeputiesService,
     { provide: LOCALE_ID, useValue: 'pt-BR' },

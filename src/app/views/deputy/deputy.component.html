@@ -22,6 +22,17 @@
         <p *ngIf="!!deputy.urlWebsite?.length">
           <small>WebSite: </small>{{ deputy.urlWebsite }}
         </p>
+        <div class="flex-tags">
+          <span class="tag-situation" title="Situação"
+            >Em {{ deputy.ultimoStatus.situacao }}</span
+          >
+          <span class="tag-condition" title="Condição eleitoral">
+            {{ deputy.ultimoStatus.condicaoEleitoral }}
+          </span>
+          <span class="tag-scholarity" title="Escolaridade">{{
+            deputy.escolaridade
+          }}</span>
+        </div>
       </div>
     </div>
     <hr />
