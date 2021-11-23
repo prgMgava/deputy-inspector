@@ -1,7 +1,0 @@
-{
-  "name": "Deputy Inspector",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}
