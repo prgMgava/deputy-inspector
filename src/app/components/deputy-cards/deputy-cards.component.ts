@@ -34,7 +34,6 @@ export class DeputyCardsComponent implements OnInit {
       'https://dadosabertos.camara.leg.br/api/v2/deputados?itens=10'
     );
     this.pagination = this.deputiesService.pagination;
-    console.log(this.deputies);
   }
 
   async nextPage() {
