@@ -5,31 +5,31 @@
     <div class="main_info">
       <figure>
         <img
-          [src]="deputy.ultimoStatus.urlFoto"
+          [src]="deputy.ultimoStatus?.urlFoto"
           [alt]="'Foto do deputado' + deputy.nomeCivil"
         />
       </figure>
       <div>
-        <p><small>Nome: </small>{{ deputy.ultimoStatus.nome }}</p>
+        <p><small>Nome: </small>{{ deputy.ultimoStatus?.nome }}</p>
 
-        <p><small>Partido: </small> {{ deputy.ultimoStatus.siglaPartido }}</p>
-        <p><small>Estado(UF): </small>{{ deputy.ultimoStatus.siglaUf }}</p>
-        <p><small>Email: </small>{{ deputy.ultimoStatus.email }}</p>
+        <p><small>Partido: </small> {{ deputy.ultimoStatus?.siglaPartido }}</p>
+        <p><small>Estado(UF): </small>{{ deputy.ultimoStatus?.siglaUf }}</p>
+        <p><small>Email: </small>{{ deputy.ultimoStatus?.email }}</p>
         <p>
-          <small>Telefone: </small>{{ deputy.ultimoStatus.gabinete.telefone }}
+          <small>Telefone: </small>{{ deputy.ultimoStatus?.gabinete?.telefone }}
         </p>
         <p *ngIf="!!deputy.urlWebsite?.length">
-          <small>WebSite: </small>{{ deputy.urlWebsite }}
+          <small>WebSite: </small>{{ deputy?.urlWebsite }}
         </p>
         <div class="flex-tags">
           <span class="tag-situation" title="Situação"
-            >Em {{ deputy.ultimoStatus.situacao }}</span
+            >Em {{ deputy.ultimoStatus?.situacao }}</span
           >
           <span class="tag-condition" title="Condição eleitoral">
-            {{ deputy.ultimoStatus.condicaoEleitoral }}
+            {{ deputy.ultimoStatus?.condicaoEleitoral }}
           </span>
           <span class="tag-scholarity" title="Escolaridade">{{
-            deputy.escolaridade
+            deputy?.escolaridade
           }}</span>
         </div>
       </div>
@@ -38,7 +38,7 @@
   </div>
   <div class="container_events">
     <h5>Último evento participado:</h5>
-    <div *ngIf="!!lastEvent.length">
+    <div *ngIf="!!lastEvent.length" class="last-event">
       <div *ngFor="let event of lastEvent">
         <p>{{ event.descricaoTipo }}</p>
         <p>

@@ -57,7 +57,7 @@ export class DeputyExpenseComponent implements OnInit {
     this.fetchExpenses();
   }
 
-  onSubmit() {
+  async onSubmit() {
     const data: FormDataExpense = {
       ano: this.form.value.ano,
       mes: this.form.value.mes,
@@ -66,9 +66,15 @@ export class DeputyExpenseComponent implements OnInit {
     };
     const query = formatExpenseQuery(data);
     if (!!query) {
-      this.deputyExpenseService.getExpenses(
+      await this.deputyExpenseService.getExpenses(
         `https://dadosabertos.camara.leg.br/api/v2/deputados/${this.deputyId}/despesas?itens=10&${query}`
       );
+    }
+    if (!!data.valor) {
+      const filteredExpenses = this.deputyExpense.filter((expense) =>
+        expense ? expense.valorDocumento < data.valor : null
+      );
+      this.deputyExpense = filteredExpenses;
     }
   }
 

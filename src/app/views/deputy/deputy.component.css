@@ -43,11 +43,14 @@
   flex-direction: column;
   margin: 32px 16px;
   align-self: baseline;
-  gap: 32px;
 }
 
 .container_events h5 {
   text-decoration: underline;
+}
+
+.last-event {
+  margin-bottom: 16px;
 }
 
 .container_events .description {
