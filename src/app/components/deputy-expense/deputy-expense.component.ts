@@ -88,7 +88,6 @@ export class DeputyExpenseComponent implements OnInit {
     this.mostCostExpense = this.getMostCostlyExpense();
     this.lastExpense = this.getLastExpense();
     this.pagination = this.deputyExpenseService.pagination;
-    console.log(!!this.lastExpense);
   }
 
   async nextPage() {

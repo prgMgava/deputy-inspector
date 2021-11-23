@@ -21,7 +21,6 @@
   justify-content: space-between;
   gap: 8px;
   margin-left: 8px;
-  /* width: 70%;     */
 }
 
 form button {
@@ -259,7 +258,4 @@ table mat-icon {
   table tr th {
     font-size: 0.7rem;
   }
-}
-
-@media only screen and (max-width: 425px) {
 }
