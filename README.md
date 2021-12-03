@@ -13,12 +13,12 @@ Foi desenvolvido para um teste técnico, com um prazo de duas semanas.
 
 ## Features
 
-###Home Page###
+### Home Page
 
 * Lista de deputados com paginação, com os principais dados.
 * Formulário para filtragem por: gênero, nome, partido, estado.
 
-###Deputy Page###
+### Deputy Page
 
 * Perfil detalhado do deputado pesquisado;
 * Agenda com o último evento que o deputado participou, e o próximo evento da agenda do deputado;
@@ -27,7 +27,7 @@ Foi desenvolvido para um teste técnico, com um prazo de duas semanas.
 * Descrição da última compra e compra mais cara;
 * Informações dos projetos de leis, com paginação
 
-###Proposition Page###
+### Proposition Page
 
 * Informações detalhadas dos projetos de leis;
 * Link do documento doo projeto
