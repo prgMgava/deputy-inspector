@@ -1,27 +1,35 @@
 # DepuryInspector
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.0.
+## Deputy Inspector ## é uma plataforma onde você, cidadão consciente, pode consultar os dados dos deputados de nosso País.
+Foi desenvolvido para um teste técnico, com um prazo de duas semanas.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Tecnologias e Ferramentas
 
-## Code scaffolding
+* Angular12 - Desenvolvimento Front-End
+* TypeScript 
+* Figma - wireframe
+* Trello - kanbann
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Features
 
-## Build
+###Home Page###
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+* Lista de deputados com paginação, com os principais dados.
+* Formulário para filtragem por: gênero, nome, partido, estado.
 
-## Running unit tests
+###Deputy Page###
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+* Perfil detalhado do deputado pesquisado;
+* Agenda com o último evento que o deputado participou, e o próximo evento da agenda do deputado;
+* Tabela com a descrições das despesas, acesso a nota fiscal, com paginação;
+* Form para filtrar as despesa por: ano, mes, valor;
+* Descrição da última compra e compra mais cara;
+* Informações dos projetos de leis, com paginação
 
-## Running end-to-end tests
+###Proposition Page###
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice.
+* Informações detalhadas dos projetos de leis;
+* Link do documento doo projeto
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Confira em [DeputyInspector](https://deputy-inspector.vercel.app/)
